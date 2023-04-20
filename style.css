@@ -1,0 +1,460 @@
+* {
+    box-sizing: border-box;
+    font-family: 'Barlow Semi Condensed', sans-serif;
+}
+
+body {
+    margin: 0;
+    
+    /* radial gradient for body background color */
+    background: #1f2b3a;
+    background: -moz-radial-gradient(center, ellipse cover,  #1f2b3a 0%, #131426 100%);
+    background: -webkit-radial-gradient(center, ellipse cover,  #1f2b3a 0%,#131426 100%);
+    background: radial-gradient(ellipse at center,  #1f2b3a 0%,#131426 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1f2b3a', endColorstr='#131426',GradientType=1 );
+
+}
+
+#container {
+    width: 1000px;
+    margin: 0 auto 10px auto;
+    display: flex;
+    flex-direction: column;  
+}
+
+#header {
+    width: 700px;
+    margin: 25px auto 100px auto;
+    display: flex;
+    justify-content: space-between;
+    border: 3px solid hsl(217, 16%, 45%);
+    border-radius: 15px;
+    padding: 20px;
+}
+
+h1 {
+    margin: 0;
+    color: white;
+    line-height: 0.9;
+    font-size: 35px;
+}
+
+#header div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: white;
+    justify-content: center;
+    border-radius: 10px;
+}
+
+#header div p {
+    margin: 0;
+    padding: 0 35px;
+    color: hsl(229, 64%, 46%);
+    letter-spacing: 2px;
+    font-size: 15px;
+}
+
+#header div p:nth-of-type(2) {
+    font-size: 55px;
+    font-weight: bold;
+    color: hsl(217, 25%, 30%);
+}
+
+#triangle {
+    margin: 75px 0 50px 0;
+}
+
+#gamePick {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+button {
+    cursor: pointer;
+}
+
+#rockPaperScissor {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.iconsDiv {
+    width: min-content;
+    background-color: white;
+    border-radius: 50%;
+    padding: 40px;
+    border: 25px solid;
+}
+
+.iconsImg {
+    width: 53px;
+    height: 59px;
+}
+
+.paper {
+    margin-right: 50px;
+    color: #3650d1;
+    box-shadow: 0px 5px 0px #2240d5;
+}
+
+.scissor {
+    margin-left: 50px;
+    color: #fdbe2c;
+    box-shadow: 0px 5px 0px #f59300;
+}
+
+.rock {
+    margin-top: 50px;
+    color: #fd2c2c;
+    box-shadow: 0px 5px 0px #e90303;
+}
+
+.pickButtons:active {
+    background-color: #e9f0eb;
+    transform: translateY(4px);
+}
+
+#gameSteps {
+    display: none;
+}
+
+#gameSteps div:first-of-type {
+    display: flex;
+    justify-content: space-around;
+}
+
+.playerPick {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.playerPick p {
+    font-size: 25px;
+    color: white;
+    letter-spacing: 3px;
+    margin-bottom: 60px;
+}
+
+.pickImg {
+    width: 103px;
+    height: 110px;
+}
+
+.pickDiv {
+    margin: 0;
+}
+
+#nextStep {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 0;
+}
+
+.nextStepButton {
+    margin: 0;
+    width: 225px;
+    height: 45px;
+    font-size: 20px;
+    color: hsl(229, 25%, 31%);
+    background-color: white;
+    border: 3px solid white;
+    border-radius: 10px;
+    padding: 5px;
+    letter-spacing: 2px;
+    cursor: pointer;
+}
+
+.nextStepButton:hover {
+    color: red;
+}
+
+.nextStepButton:active {
+    transform: translateY(4px);
+}
+
+.housePickStep1 {
+    width: 203px;
+    height: 210px;
+    background-color: hsl(231, 13%, 11%, 0.4);
+    margin-top: 25px;
+    border-radius: 50%;
+}
+
+#rulesButton {
+    margin: 40px 0 0 0;
+    text-align: right;
+}
+
+#rulesButton button {
+    width: 150px;
+    height: 45px;
+    font-size: 20px;
+    color: white;
+    background-color: transparent;
+    border: 3px solid hsl(217, 16%, 45%);
+    border-radius: 10px;
+    padding: 5px;
+    letter-spacing: 2px;
+}
+
+#rulesButton button:hover {
+    background-color: #e9f0eb;
+    color: black;
+}
+
+#rulesButton button:active {
+    background-color: #e9f0eb;
+    color: black;
+    transform: translateY(4px);
+}
+
+#containerRulesPopup {
+    width: 364px;
+    height: 399px;
+    margin: auto;
+    padding: 30px;
+    background-color: white;
+    border-radius: 10px;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    align-items: center;
+    justify-content: center;
+    display: none;    
+}
+
+#containerRulesPopup div {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 30px;
+}
+
+#containerRulesPopup div p {
+    margin: 0;
+    font-size: 30px;
+    font-weight: bold;
+    color: hsl(229, 25%, 31%);
+}
+
+#buttonClose {
+    background-color: white;
+    border: 0;
+}
+
+#rulesImg {
+    margin: auto;
+}
+
+/* JS Styles - For the elements that may be included using javascript */
+
+.allHighlightCircle {
+    background-color: transparent;
+    border-radius: 50%;
+    position: absolute;
+}
+
+.desktopHighlightCircle1 {
+    width: 335px;
+    height: 342px;
+    border: 51px solid rgba(127, 127, 127, 0.2); 
+}
+
+.playerDesktopHighlightCircle1, .playerDesktopHighlightCircle2, .playerDesktopHighlightCircle3 {
+    margin-top: 117px;
+}
+
+.houseDesktopHighlightCircle1 {
+    margin-top: 64px;
+}
+
+.desktopHighlightCircle2 {
+    width: 436px;
+    height: 444px;;
+    border: 51px solid rgba(127, 127, 127, 0.1); 
+}
+
+.houseDesktopHighlightCircle2 {
+    margin-top: 13px;
+}
+
+.desktopHighlightCircle3 {
+    width: 538px;
+    height: 547px;
+    border: 51px solid rgba(127, 127, 127, 0.05); 
+}
+
+.houseDesktopHighlightCircle3 {
+    margin-top: -39px;
+}
+
+.mobileHighlightCircle1 {
+    width: 148px;
+    height: 153px;
+    border: 20px solid rgba(127, 127, 127, 0.2); 
+}
+
+.playerMobileHighlightCircle1, .playerMobileHighlightCircle2, .playerMobileHighlightCircle3 {
+    margin-top: -41px;
+}
+
+.houseMobileHighlightCircle1 {
+    margin-top: 0;
+    margin-bottom: 31px;
+}
+
+.mobileHighlightCircle2 {
+    width: 188px;
+    height: 193px;
+    border: 20px solid rgba(127, 127, 127, 0.1); 
+}
+
+.houseMobileHighlightCircle2 {
+    margin-top: 0;
+    margin-bottom: 11px;
+}
+
+.mobileHighlightCircle3 {
+    width: 228px;
+    height: 234px;
+    border: 20px solid rgba(127, 127, 127, 0.05); 
+}
+
+.houseMobileHighlightCircle3 {
+    margin-top: 0;
+    margin-bottom: -10px;
+}
+
+@media (max-width: 1000px) {
+
+    #container {
+        width: 280px;
+        height: 100vh;
+        margin: 0 auto;
+    }
+
+    #header {
+        width: 280px;
+        padding: 10px;
+        margin: 40px 0 40px 0;
+    }
+
+    h1 {
+        font-size: 20px;
+    }
+
+    #header div p {
+        font-size: 12px;
+        padding: 0 20px;
+    }
+
+    #header div p:nth-of-type(2) {
+        font-size: 30px;
+    }
+
+    #triangle {
+        margin-top: 50px;
+        width: 240px;
+    }
+
+    .iconsImg {
+        width: 40px;
+        height: 45px;
+    }
+
+    .iconsDiv {
+        padding: 20px;
+        border: 14px solid;
+    }
+
+    #rockPaperScissor div {
+        width: 280px;
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .paper {
+        margin-right: 0;
+    }
+
+    .scissor {
+        margin-left: 0;
+    }
+
+    #rulesButton {
+        margin: 0 auto;
+        text-align: center;
+    }
+
+    #rulesButton button {
+        margin: 0 auto;
+    }
+
+    #containerRulesPopup {
+        height: min-content;
+        width: min-content;
+        padding: 20px;
+        display: none;
+    }
+
+    #containerRulesPopup div {
+        width: 240px;
+        margin: 0 auto 30px auto;
+        justify-content: space-around;
+    }
+
+    #rulesImg {
+        width: 240px;
+        margin: 0 auto;
+    }
+
+    #gameSteps {
+        width: 280px;
+        margin: 0;
+    }
+
+    .pickImg {
+        width: 40px;
+        height: 45px;
+    }
+
+    .housePickStep1 {
+        width: 100px;
+        height: 108px;
+        margin-top: 14px;
+    }
+
+    .playerPick {
+        width: 50%;
+    }
+
+    .playerPick p {
+        font-size: 15px;
+        margin-bottom: 0;
+        text-align: center;
+    }
+
+    .pick1 {
+        display: flex;
+        flex-direction: column-reverse;
+    }
+
+    .pick2 {
+        display: flex;
+        flex-direction: column-reverse;
+        margin-top: 3px;
+    }
+
+    #nextStep {
+        margin: 50px auto 50px auto;
+    }
+}
+

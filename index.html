@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rock Paper Scissors</title>
+    <link rel="shortcut icon" href="./images/favicon-32x32.png" type="image/x-icon" />
+    <link rel="stylesheet" href="./style.css">
+
+    <!-- Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div id="container">
+        <section id="header">
+            <h1>ROCK<br>PAPER<br>SCISSORS</h1>
+    
+            <div id="scoreDiv">
+                <p>SCORE</p>
+                <p id="scoreNumber">0</p>
+            </div>
+        </section>
+    
+        <section id="gamePick">
+            <img id="triangle" src="./images/bg-triangle.svg" alt="Triangle">
+            
+            <div id="rockPaperScissor">
+                <div>
+                    <button class="paper pickButtons iconsDiv">
+                        <img class="iconsImg" src="./images/icon-paper.svg" alt="Icon Paper">
+                    </button>
+            
+                    <button class="scissor pickButtons iconsDiv">
+                        <img class="iconsImg" src="./images/icon-scissors.svg" alt="Icon Scissor">
+                    </button>
+                </div>
+        
+                <button class="rock pickButtons iconsDiv">
+                    <img class="iconsImg" src="./images/icon-rock.svg" alt="Icon Rock">
+                </button>
+            </div>
+        </section>
+
+        <section id="gameSteps">
+            <div>
+                <div class="playerPick pick1">
+                    <p>YOU PICKED</p>
+                    <div class="iconsDiv pickDiv"></div>
+                </div>
+
+                <div class="playerPick pick2">
+                    <P>THE HOUSE PICKED</P>
+                    <div class="housePickStep1"></div>
+                </div>
+            </div>
+
+            <div id="nextStep">
+                <button class="nextStepButton">NEXT</button>
+            </div>
+        </section>
+    
+        <section id="rulesButton">
+            <button>RULES</button>
+        </section>
+    </div>
+
+    <div id="containerRulesPopup">
+        <div>
+            <p>RULES</p>
+            <button id="buttonClose">
+                <img src="./images/icon-close.svg" alt="Close Icon">
+            </button>
+        </div>
+        <img id="rulesImg" src="./images/image-rules.svg" alt="Rules Image">
+    </div>
+</body>
+
+<script src="./script.js"></script>
+
+</html>
