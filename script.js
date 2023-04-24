@@ -324,34 +324,35 @@ let playerSectedPick;
 
 housePick = housePickGenerate();
 
-rulesButton.addEventListener("click", () => {
+rulesButton.addEventListener("click", function() {
     openRules(rulesWindow, container);
     disableButtons(paperBtn, scissorBtn, rockBtn, rulesButton);
 });
-closeRulesButton.addEventListener("click", () => {
+
+closeRulesButton.addEventListener("click", function() {
     closeRules(rulesWindow, container);
     enableButtons(paperBtn, scissorBtn, rockBtn, rulesButton);
 });
 
-paperBtn.addEventListener("click", () => {
+paperBtn.addEventListener("click", function() {
     playerSectedPick = playerSelectedPick(1, step);
     playerPick = playerSectedPick[0]; 
     step = playerSectedPick[1];
 });
 
-scissorBtn.addEventListener("click", () => {
+scissorBtn.addEventListener("click", function() {
     playerSectedPick = playerSelectedPick(2, step);
     playerPick = playerSectedPick[0]; 
     step = playerSectedPick[1];
 });
 
-rockBtn.addEventListener("click", () => {
+rockBtn.addEventListener("click", function() {
     playerSectedPick = playerSelectedPick(3, step);
     playerPick = playerSectedPick[0]; 
     step = playerSectedPick[1];
 });
 
-nextButton.addEventListener("click", () => {
+nextButton.addEventListener("click", function() {
     step++; 
     score = gameSteps(step, playerPick, housePick, score);
     housePick = newHousePickIfPlayAgain(housePick, step);
@@ -360,7 +361,7 @@ nextButton.addEventListener("click", () => {
     adjustHighlightSize(pageWidth);
 });
 
-window.addEventListener("resize", () => {
+window.addEventListener("resize", function() {
     pageWidth = getWidth();
     adjustHighlightSize(pageWidth);
 });
