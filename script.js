@@ -1,49 +1,20 @@
-// enable all the buttons on the gamePick screen
-function enableButtons(paperBtn, scissorBtn, rockBtn, rulesButton) {
-    paperBtn.disabled = false;
-    scissorBtn.disabled = false;
-    rockBtn.disabled = false;
-    rulesButton.disabled = false;
-}
-
-// disable all the buttons on the gamePick screen
-function disableButtons(paperBtn, scissorBtn, rockBtn, rulesButton) {
-    paperBtn.disabled = true;
-    scissorBtn.disabled = true;
-    rockBtn.disabled = true;
-    rulesButton.disabled = true;
-}
-
 // open the rules of the game
-function openRules(rulesWindow, container) {
-    rulesWindow.style.display = "initial";
-    container.style.opacity = "15%";
+const openRules = (rulesBody) => {
+    rulesBody.style.display = "initial";
 }
 
 // close the rules of the game
-function closeRules(rulesWindow, container) {
-    rulesWindow.style.display = "none";
-    container.style.opacity = "100%";
-}
-
-// returns the width of the window
-function getWidth() {
-    return Math.max(
-    document.body.scrollWidth,
-    document.documentElement.scrollWidth,
-    document.body.offsetWidth,
-    document.documentElement.offsetWidth,
-    document.documentElement.clientWidth
-    );
+const closeRules = (rulesBody) => {
+    rulesBody.style.display = "none";
 }
 
 // generates a random number between 1 and 3 to be the house pick
-function housePickGenerate() {
+const housePickGenerate = () => {
     return (Math.floor(Math.random() * 3) + 1);
 }
 
 // verify the step to check if the player is in a new game (play again), if yes, this function generates a new house pick... if negative, the house pick stays the same
-function newHousePickIfPlayAgain(housePick, step) {
+const newHousePickIfPlayAgain = (housePick, step) => {
     if(step > 3) {
         return housePickGenerate();
     }
@@ -51,7 +22,7 @@ function newHousePickIfPlayAgain(housePick, step) {
 }
 
 // verify the step to check if the player is in a new game (play again), if yes, this means this is a new game and the step get back to 0 (zero)... if negative, the step stays the same
-function verifyStep(step) {
+const verifyStep = (step) => {
     if(step > 3) {
         return 0;
     }
@@ -59,7 +30,7 @@ function verifyStep(step) {
 }
 
 // highlights the winner with 3 circles
-function highlightWinner(winner, pageWidth) {
+const highlightWinner = (winner) => {
     let divPlayerPick;
     const circle1 = document.createElement('div');
     const circle2 = document.createElement('div');
@@ -70,15 +41,15 @@ function highlightWinner(winner, pageWidth) {
         case 1:
             divPlayerPick = document.querySelector(".pick2");
 
-            circle1.classList = "allHighlightCircle desktopHighlightCircle1 houseDesktopHighlightCircle1";
+            circle1.classList = "allHighlightCircle highlightCircle1 houseHighlightCircle1";
             circle1.setAttribute("id", "houseCircle1");
             divPlayerPick.append(circle1);
 
-            circle2.classList = "allHighlightCircle desktopHighlightCircle2 houseDesktopHighlightCircle2";
+            circle2.classList = "allHighlightCircle highlightCircle2 houseHighlightCircle2";
             circle2.setAttribute("id", "houseCircle2");
             divPlayerPick.append(circle2);
 
-            circle3.classList = "allHighlightCircle desktopHighlightCircle3 houseDesktopHighlightCircle3";
+            circle3.classList = "allHighlightCircle highlightCircle3 houseHighlightCircle3";
             circle3.setAttribute("id", "houseCircle3");
             divPlayerPick.append(circle3);
             break;
@@ -86,15 +57,15 @@ function highlightWinner(winner, pageWidth) {
         case 2:
             divPlayerPick = document.querySelector(".pick1");
 
-            circle1.classList = "allHighlightCircle desktopHighlightCircle1 playerDesktopHighlightCircle1";
+            circle1.classList = "allHighlightCircle highlightCircle1 playerHighlightCircle1";
             circle1.setAttribute("id", "playerCircle1");
             divPlayerPick.append(circle1);
     
-            circle2.classList = "allHighlightCircle desktopHighlightCircle2 playerDesktopHighlightCircle2";
+            circle2.classList = "allHighlightCircle highlightCircle2 playerHighlightCircle2";
             circle2.setAttribute("id", "playerCircle2");
             divPlayerPick.append(circle2);
     
-            circle3.classList = "allHighlightCircle desktopHighlightCircle3 playerDesktopHighlightCircle3";
+            circle3.classList = "allHighlightCircle highlightCircle3 playerHighlightCircle3";
             circle3.setAttribute("id", "playerCircle3");
             divPlayerPick.append(circle3);
             break;
@@ -104,9 +75,9 @@ function highlightWinner(winner, pageWidth) {
 }
 
 // verify if a player highlight exists, if yes, removes the 3-circle highlight from this player
-function removeHighlight() {
+const removeHighlight = () => {
     // verify if player is highlighted
-    if(document.querySelector("#playerCircle1") != null) {
+    if(document.querySelector("#playerCircle1") !== null) {
         const divPlayerCircle1 = document.querySelector("#playerCircle1");
         const divPlayerCircle2 = document.querySelector("#playerCircle2");
         const divPlayerCircle3 = document.querySelector("#playerCircle3");
@@ -116,7 +87,7 @@ function removeHighlight() {
         divPlayerCircle3.remove();
     } 
     // verify if house is highlighted
-    else if(document.querySelector("#houseCircle1") != null) {
+    else if(document.querySelector("#houseCircle1") !== null) {
         const divHouseCircle1 = document.querySelector("#houseCircle1");
         const divHouseCircle2 = document.querySelector("#houseCircle2");
         const divHouseCircle3 = document.querySelector("#houseCircle3");
@@ -127,50 +98,8 @@ function removeHighlight() {
     }
 }
 
-// adjust the winner highlight size according to desktop or mobile layout
-function adjustHighlightSize(pageWidth) {
-    // verify if player is highlighted
-    if (document.querySelector("#playerCircle1") != null) {
-        const divPlayerCircle1 = document.querySelector("#playerCircle1");
-        const divPlayerCircle2 = document.querySelector("#playerCircle2");
-        const divPlayerCircle3 = document.querySelector("#playerCircle3");
-
-        // mobile layout for player highlight circles
-        if (pageWidth < 1000) { // If media query matches
-            divPlayerCircle1.classList = "allHighlightCircle mobileHighlightCircle1 playerMobileHighlightCircle1";
-            divPlayerCircle2.classList = "allHighlightCircle mobileHighlightCircle2 playerMobileHighlightCircle2";
-            divPlayerCircle3.classList = "allHighlightCircle mobileHighlightCircle3 playerMobileHighlightCircle3";
-        } 
-        // desktop layout for player highlight circles
-        else {
-            divPlayerCircle1.classList = "allHighlightCircle desktopHighlightCircle1 playerDesktopHighlightCircle1";
-            divPlayerCircle2.classList = "allHighlightCircle desktopHighlightCircle2 playerDesktopHighlightCircle2";
-            divPlayerCircle3.classList = "allHighlightCircle desktopHighlightCircle3 playerDesktopHighlightCircle3";
-        }
-    } 
-    // verify if house is highlighted
-    else if (document.querySelector("#houseCircle1") != null) {
-        const divHouseCircle1 = document.querySelector("#houseCircle1");
-        const divHouseCircle2 = document.querySelector("#houseCircle2");
-        const divHouseCircle3 = document.querySelector("#houseCircle3");
-        
-        // mobile layout for house highlight circles
-        if (pageWidth < 1000) { // If media query matches
-            divHouseCircle1.classList = "allHighlightCircle mobileHighlightCircle1 houseMobileHighlightCircle1";
-            divHouseCircle2.classList = "allHighlightCircle mobileHighlightCircle2 houseMobileHighlightCircle2";
-            divHouseCircle3.classList = "allHighlightCircle mobileHighlightCircle3 houseMobileHighlightCircle3";
-        } 
-        // desktop layout for house highlight circles
-        else {
-            divHouseCircle1.classList = "allHighlightCircle desktopHighlightCircle1 houseDesktopHighlightCircle1";
-            divHouseCircle2.classList = "allHighlightCircle desktopHighlightCircle2 houseDesktopHighlightCircle2";
-            divHouseCircle3.classList = "allHighlightCircle desktopHighlightCircle3 houseDesktopHighlightCircle3";
-        }
-    }
-}
-
 // verify the playerPick and make the game goes to the next page, showing the image of the player pick
-function gamePick(pick) {
+const gamePick = (pick) => {
     //remove any highlight existing, creates and add an image to the page, this image will show the player pick in the next game screen
     removeHighlight();
     const gamePick = document.querySelector("#gamePick");
@@ -205,7 +134,7 @@ function gamePick(pick) {
 }
 
 // this function will be called when the player picks an icon, so this function will increase the step (it means that we are going to the next step of the game) and return the playerPick and the new step of the game
-function playerSelectedPick(value, step) {
+const playerSelectedPick = (value, step) => {
     step++;
     let playerPick = gamePick(value); 
     step = verifyStep(step);
@@ -214,7 +143,7 @@ function playerSelectedPick(value, step) {
 }
 
 // this function is responsible to deal with all the game steps after the player pick
-function gameSteps(step, playerPick, housePick, score) {
+const gameSteps = (step, playerPick, housePick, score) => {
     const nextButton = document.querySelector(".nextStepButton");
     const divNextStep = document.querySelector("#nextStep");
     let divHousePick;
@@ -259,13 +188,13 @@ function gameSteps(step, playerPick, housePick, score) {
             divNextStep.insertBefore(result, nextButton)
     
             // House Wins
-            if((playerPick - housePick) == -1 || (playerPick - housePick) == 2) {
+            if((playerPick - housePick) === -1 || (playerPick - housePick) === 2) {
                 result.textContent = "YOU LOSE";
                 score -= 1;
                 newScore = String(score);
                 actualScore.textContent = newScore;
     
-                highlightWinner(1, pageWidth);
+                highlightWinner(1);
             } 
             // Draw
             else if (playerPick === housePick) {
@@ -313,55 +242,44 @@ const rockBtn = document.querySelector(".rock")
 const rulesButton = document.querySelector("#rulesButton");
 const nextButton = document.querySelector(".nextStepButton");
 const closeRulesButton = document.querySelector("#buttonClose");
-const rulesWindow = document.querySelector("#containerRulesPopup");
-const container = document.querySelector("#container");
+const rulesBody = document.querySelector("#rulesBody");
 let step = 0;
 let playerPick = 0;
 let housePick = 0;
 let score = 0;
-let pageWidth = 0;
 let playerSectedPick;
 
 housePick = housePickGenerate();
 
-rulesButton.addEventListener("click", function() {
-    openRules(rulesWindow, container);
-    disableButtons(paperBtn, scissorBtn, rockBtn, rulesButton);
+rulesButton.addEventListener("click", () => {
+    openRules(rulesBody);
 });
 
-closeRulesButton.addEventListener("click", function() {
-    closeRules(rulesWindow, container);
-    enableButtons(paperBtn, scissorBtn, rockBtn, rulesButton);
+closeRulesButton.addEventListener("click", () => {
+    closeRules(rulesBody);
 });
 
-paperBtn.addEventListener("click", function() {
+paperBtn.addEventListener("click", () => {
     playerSectedPick = playerSelectedPick(1, step);
     playerPick = playerSectedPick[0]; 
     step = playerSectedPick[1];
 });
 
-scissorBtn.addEventListener("click", function() {
+scissorBtn.addEventListener("click", () => {
     playerSectedPick = playerSelectedPick(2, step);
     playerPick = playerSectedPick[0]; 
     step = playerSectedPick[1];
 });
 
-rockBtn.addEventListener("click", function() {
+rockBtn.addEventListener("click", () => {
     playerSectedPick = playerSelectedPick(3, step);
     playerPick = playerSectedPick[0]; 
     step = playerSectedPick[1];
 });
 
-nextButton.addEventListener("click", function() {
+nextButton.addEventListener("click", () => {
     step++; 
     score = gameSteps(step, playerPick, housePick, score);
     housePick = newHousePickIfPlayAgain(housePick, step);
     step = verifyStep(step);
-    pageWidth = getWidth();
-    adjustHighlightSize(pageWidth);
-});
-
-window.addEventListener("resize", function() {
-    pageWidth = getWidth();
-    adjustHighlightSize(pageWidth);
 });
