@@ -216,6 +216,15 @@ button {
     transform: translateY(4px);
 }
 
+#rulesBody {
+    width: 100%;
+    height: 100%;
+    background-color: hsl(0deg 0.57% 2.35% / 60%);
+    display: none;
+    position: fixed;
+    top: 0;
+}
+
 #containerRulesPopup {
     width: 364px;
     height: 399px;
@@ -229,8 +238,7 @@ button {
     right: 0;
     left: 0;
     align-items: center;
-    justify-content: center;
-    display: none;    
+    justify-content: center;  
 }
 
 #containerRulesPopup div {
@@ -263,79 +271,41 @@ button {
     position: absolute;
 }
 
-.desktopHighlightCircle1 {
+.highlightCircle1 {
     width: 335px;
     height: 342px;
     border: 51px solid rgba(127, 127, 127, 0.2); 
 }
 
-.playerDesktopHighlightCircle1, .playerDesktopHighlightCircle2, .playerDesktopHighlightCircle3 {
+.playerHighlightCircle1, .playerHighlightCircle2, .playerHighlightCircle3 {
     margin-top: 117px;
 }
 
-.houseDesktopHighlightCircle1 {
+.houseHighlightCircle1 {
     margin-top: 64px;
 }
 
-.desktopHighlightCircle2 {
+.highlightCircle2 {
     width: 436px;
     height: 444px;;
     border: 51px solid rgba(127, 127, 127, 0.1); 
 }
 
-.houseDesktopHighlightCircle2 {
+.houseHighlightCircle2 {
     margin-top: 13px;
 }
 
-.desktopHighlightCircle3 {
+.highlightCircle3 {
     width: 538px;
     height: 547px;
     border: 51px solid rgba(127, 127, 127, 0.05); 
 }
 
-.houseDesktopHighlightCircle3 {
+.houseHighlightCircle3 {
     margin-top: -39px;
 }
 
-.mobileHighlightCircle1 {
-    width: 148px;
-    height: 153px;
-    border: 20px solid rgba(127, 127, 127, 0.2); 
-}
-
-.playerMobileHighlightCircle1, .playerMobileHighlightCircle2, .playerMobileHighlightCircle3 {
-    margin-top: -41px;
-}
-
-.houseMobileHighlightCircle1 {
-    margin-top: 0;
-    margin-bottom: 31px;
-}
-
-.mobileHighlightCircle2 {
-    width: 188px;
-    height: 193px;
-    border: 20px solid rgba(127, 127, 127, 0.1); 
-}
-
-.houseMobileHighlightCircle2 {
-    margin-top: 0;
-    margin-bottom: 11px;
-}
-
-.mobileHighlightCircle3 {
-    width: 228px;
-    height: 234px;
-    border: 20px solid rgba(127, 127, 127, 0.05); 
-}
-
-.houseMobileHighlightCircle3 {
-    margin-top: 0;
-    margin-bottom: -10px;
-}
-
 @media (max-width: 1000px) {
-
     #container {
         width: 280px;
         height: 100vh;
@@ -403,7 +373,6 @@ button {
         height: min-content;
         width: min-content;
         padding: 20px;
-        display: none;
     }
 
     #containerRulesPopup div {
@@ -456,6 +425,45 @@ button {
 
     #nextStep {
         margin: 50px auto 50px auto;
+    }
+
+    /* Adjusting highlight circles */
+
+    .highlightCircle1 {
+        width: 148px;
+        height: 153px;
+        border: 20px solid rgba(127, 127, 127, 0.2); 
+    }
+    
+    .playerHighlightCircle1, .playerHighlightCircle2, .playerHighlightCircle3 {
+        margin-top: -41px;
+    }
+    
+    .houseHighlightCircle1 {
+        margin-top: 0;
+        margin-bottom: 31px;
+    }
+    
+    .highlightCircle2 {
+        width: 188px;
+        height: 193px;
+        border: 20px solid rgba(127, 127, 127, 0.1); 
+    }
+    
+    .houseHighlightCircle2 {
+        margin-top: 0;
+        margin-bottom: 11px;
+    }
+    
+    .highlightCircle3 {
+        width: 228px;
+        height: 234px;
+        border: 20px solid rgba(127, 127, 127, 0.05); 
+    }
+    
+    .houseHighlightCircle3 {
+        margin-top: 0;
+        margin-bottom: -10px;
     }
 }
 
