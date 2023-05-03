@@ -27,11 +27,7 @@ To execute the project in your computer:
 $ git clone https://github.com/MatricksRocha/RockPaperScissors.git
 ```
 
-Then:
-
-```bash
-# Just open the file "index.html" with your browser.
-```
+Then just open the file "index.html" with your browser.
 
 ## 📝 Developed By
 
